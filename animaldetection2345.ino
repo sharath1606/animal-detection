@@ -1,7 +1,7 @@
 #include <SoftwareSerial.h>
 
 SoftwareSerial SIM900A(2,3);
-#define led 12
+#define led 6
 #define pir 5
 
 
@@ -16,7 +16,9 @@ void setup()
   Serial.println ("Text Messege Module Ready & Verified");
   delay(100);
   Serial.println ("Type s to send message or r to receive message");
-  
+   digitalWrite(led, HIGH);
+  delay(1000);
+  digitalWrite(led, LOW);
 }
 
 
@@ -25,7 +27,7 @@ void loop()
 
   char inChar = (char)Serial.read();
   
-  if(pir==HIGH||inChar=='a')
+  if(pir==HIGH||inChar=='d')
   {
 digitalWrite(led, HIGH);   // turn the LED on (HIGH is the voltage level)
     SendMessage();             
